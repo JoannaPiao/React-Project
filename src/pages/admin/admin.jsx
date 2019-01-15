@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 
-export default class Admin extends Component {
+/*
+后台管理主界面的路由组件
+ */
+export default class Admin extends React.Component {
     render() {
         return (
             <div>
-                Login
+                Admin
             </div>
 
         )
