@@ -9,17 +9,17 @@ import Admin from './pages/admin/admin'
  */
 export default class App extends React.Component {
 
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          {/*先后顺序不能变，请求路径和路由路径的匹配：逐层匹配从前到后*/}
-          <Route path='/login' component={Login} />
-          <Route path='/' component={Admin} />
-        </Switch>
-      </BrowserRouter>
-    )
-  }
+    render() {
+        return (
+            <BrowserRouter>
+                <Switch>
+                    {/*先后顺序不能变，请求路径和路由路径的匹配：逐层匹配从前到后*/}
+                    <Route path='/login' component={Login}/>
+                    <Route path='/' component={Admin}/>
+                </Switch>
+            </BrowserRouter>
+        )
+    }
 }
 /*向外暴露*/
 
