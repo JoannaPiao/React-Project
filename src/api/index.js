@@ -13,7 +13,7 @@ import ajax from './ajax'
 //如果是传两个参数  用哪个方式都行  如果有三个的话  可以偏向用对象传
 
 //箭头函数如果用大括号
-export  const  reqLogin =(username,password)=> ajax('./login',{username,password},'POST')
+export const reqLogin = (username, password) => ajax('./login', {username, password}, 'POST')
 
 /*
 可以简写
@@ -26,3 +26,5 @@ export function reqLogin({username, password}) {
 //添加用户
 
 export const reqAddUser = (user) => ajax('/manage/user/add', user, 'POST')
+
+

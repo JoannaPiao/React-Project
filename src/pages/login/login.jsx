@@ -9,6 +9,8 @@ import './index.less'
 import PropTypes from 'prop-types'
 import {reqLogin} from '../../api'
 import logo from '../../assets/images/logo.png'
+import storageUtils from '../../utils/storageUtils'
+import MemoryUtils from '../../utils/MemoryUtils'
 
 
 /*
@@ -28,9 +30,16 @@ export default class Login extends Component {
         if (result.status === 0) {//登录成功
             const user = result.data
             //保存user
+            storageUtils.saveUser(user)//local中 本地
+            MemoryUtils.user = user  //内存中
+            /*
+           LocalStorage
+           sessionStorage
+            */
+            // localaStorage.setItem('USER_KEY',JSON.stringify(user)) 现在不用这个了
 
             //跳转到管理界面
-            this.props.history.replace('/')
+            this.props.history.replace('/admin')
         } else {//登录失败
             this.setState({
                 //更新错误信息，如果status为1的话 一般都有msg属性
@@ -51,7 +60,12 @@ export default class Login extends Component {
 
                 <div className="login-content">
                     <div className="login-box">
-                        <div>{errorMsg}</div>
+                        <div className="error-msg-wrap">
+                            <div className={errorMsg ? "show" : ""}>
+                                {errorMsg}
+                            </div>
+                        </div>
+
                         <div className="title">用户登录</div>
                         <LoginForm login={this.login}/>
                     </div>
